@@ -1,0 +1,14 @@
+{
+	"$schema": "./node_modules/reacting-squirrel/schemas/rsconfig.schema.json",
+	"routes": [
+		{
+			"route": "/",
+			"title": "Home",
+			"component": "pages/home"
+		}
+	],
+	"mergeStyles": [
+		"./node_modules/bootstrap/dist/css/bootstrap.min.css"
+	],
+	"layoutComponent": "./dist/layout.js"
+}

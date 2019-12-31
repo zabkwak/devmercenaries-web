@@ -1,0 +1,8 @@
+/node_modules
+/dist
+/index.js
+/package-lock.json
+
+/app/~rs
+/public/css/rs-app.css
+/public/js/bundle*
