@@ -1,0 +1,89 @@
+//
+// SVG sprite
+// ==========================================================================
+$dvmrcnrs-svg-sprites-classname: 'dvmrcnrs-svgSprites';
+.#{$dvmrcnrs-svg-sprites-classname} {
+    display: none;
+}
+
+$dvmrcnrs-svg-sprite-classname: 'dvmrcnrs-svgSprite';
+.#{$dvmrcnrs-svg-sprite-classname} {
+    width: 1px;
+    height: 1px;
+    display: inline-block;
+
+    &-elasticsearch {
+        width: 142px;
+        height: 29px;
+    }
+
+    &-mysql {
+        width: 100px;
+        height: 64px;
+    }
+
+    &-ngingx {
+        width: 120px;
+        height: 50px;
+    }
+
+    &-nodejs {
+        width: 98px;
+        height: 60px;
+    }
+
+    &-react {
+        width: 48px;
+        height: 48px;
+    }
+
+    &-redis {
+        width: 102px;
+        height: 32px;
+    }
+
+    &-email {
+        width: 39px;
+        height: 25px;
+    }
+
+    &-phone {
+        width: 33px;
+        height: 34px;
+    }
+
+    &-github {
+        width: 44px;
+        height: 44px;
+    }
+    
+    &--inherit-color {
+        fill: currentColor;
+
+        circle,
+        ellipse,
+        g,
+        line,
+        path,
+        polygon,
+        polyline,
+        rect {
+            fill: inherit;
+        }
+    }
+
+    &--inherit-stroke {
+        stroke: currentColor;
+
+        circle,
+        ellipse,
+        g,
+        line,
+        path,
+        polygon,
+        polyline,
+        rect {
+            stroke: inherit;
+        }
+    }
+}

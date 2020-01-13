@@ -1,3 +1,201 @@
+@import "~bootstrap/scss/functions";
+
+/* @import "./_variables"; */
+@import "./_variables-bootstrap";
+@import "~bootstrap/scss/variables";
+
+@import "~bootstrap/scss/mixins";
+
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/grid";
+
+// ==========================================================================
+// Global
+// ==========================================================================
+html {
+    scroll-behavior: smooth;
+}
+
 body  {
-	
+    background-image: linear-gradient(top, #000 0%, #171717 100%);
+    min-height: 100vh;
+}
+
+//
+// Main
+// ==========================================================================
+$dvmrcnrs-main-classname: 'dvmrcnrs-main';
+.#{$dvmrcnrs-main-classname} {
+    min-height: 100vh;
+}
+
+//
+// Section
+// ==========================================================================
+$dvmrcnrs-section-classname: 'dvmrcnrs-section';
+.#{$dvmrcnrs-section-classname} {
+    min-height: 100vh;
+    padding-top: 2.875rem;
+    padding-bottom: 2.875rem;
+
+    @include media-breakpoint-up(lg) {
+        padding-top: 5.875rem;
+        padding-bottom: 5.875rem;
+    }
+
+    &__title {
+        text-align: center;
+        margin-bottom: 5.125rem;
+
+        &:after {
+            background-color: rgba(255, 255, 225, .25);
+            width: 84px;
+            height: 2px;
+            content: "";
+            margin: 2.500rem auto 0;
+            display: block;
+        }
+    }
+
+    p {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+//
+// Logos
+// ==========================================================================
+$dvmrcnrs-logos-classname: 'dvmrcnrs-logos';
+.#{$dvmrcnrs-logos-classname} {
+    max-width: 290px;
+    margin: 0 auto 4.500rem;
+    grid-template-columns: repeat(2, 145px);
+    grid-template-rows: repeat(3, 104px); 
+    grid-gap: 0;
+    display: grid;
+
+    @include media-breakpoint-up(lg) {
+        max-width: 570px;
+        grid-template-columns: repeat(3, 190px);
+        grid-template-rows: repeat(2, 144px); 
+    }
+
+    &__item {
+        border: 0px solid #313131;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+
+    &__icon {
+        margin: 20px;
+        transition: .3s filter;
+
+        @include hover-focus {
+            filter: brightness(2);
+        }
+    }
+
+    @include media-breakpoint-down(md) {
+        &__item:nth-child(1n+3) {
+            border-top-width: 1px;
+        }
+
+
+        &__item:nth-child(2n+1) {
+            border-right-width: 1px;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        &__item:nth-child(3n+4),
+        &__item:nth-child(3n+5),
+        &__item:nth-child(3n+6){
+            border-top-width: 1px;
+        }
+
+        &__item:nth-child(3n+2) {
+            border-left-width: 1px;
+            border-right-width: 1px;
+        }
+    }
+}
+
+//
+// Contact
+// ==========================================================================
+$dvmrcnrs-contact-classname: 'dvmrcnrs-contact';
+.#{$dvmrcnrs-contact-classname} {
+    max-width: 916px;
+    margin: 0 auto;
+    grid-template-columns: repeat(1, 100%);
+    grid-gap: 10px;
+    display: grid;
+
+    @include media-breakpoint-up(lg) {
+        grid-template-columns: repeat(3, 33.3%);
+    }
+
+    &__item {
+        border: 0px solid #313131;
+        align-items: center;
+        justify-content: flex-end;
+        flex-direction: column;
+        display: flex;
+    }
+
+    &__item + &__item {
+        margin-top: 1.000rem;
+
+        @include media-breakpoint-up(lg) {
+            margin-top: 0;
+        }
+    }
+
+    &__icon {
+        margin-bottom: 1.000rem;
+    }
+
+    &__title {
+        font-size: $h5-font-size;
+    }
+
+    &__link {
+        position: relative;
+        color: #fff;
+
+        &:before,
+        &:after {
+            position: absolute;
+            bottom: -0.5rem;
+            background-color: #fff;
+            width: 0;
+            height: 1px;
+            content: "";
+            display: block;
+            transition: .3s width;
+        }
+
+        &:before {
+            left: 50%;
+        }
+
+        &:after {
+            right: 50%;
+        }
+
+        @include hover-focus {
+            color: #fff;
+            text-decoration: none;
+
+            &:before,
+            &:after {
+                width: 50%;
+            }
+        }
+    }
 }

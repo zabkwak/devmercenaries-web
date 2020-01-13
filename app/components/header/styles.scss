@@ -1,0 +1,205 @@
+// @import "../../../public/css/_variables";
+@import "../../../public/css/_variables-bootstrap";
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+
+// ==========================================================================
+// Header
+// ==========================================================================
+$dvmrcnrs-header-classname: 'dvmrcnrs-header';
+.#{$dvmrcnrs-header-classname} {
+    min-height: 100vh;
+    text-align: center;
+    padding-bottom: 4.250rem;
+    flex-direction: column;
+    display: flex;
+
+    &__container {
+        flex: 1;
+        flex-direction: column;
+        display: flex;
+    }
+
+    &__logo {
+        position: relative;
+        display: inline-block;
+    }
+
+    &__logoImg {
+        @include img-fluid;
+    }
+
+    &__hiredFlag {
+        position: relative;
+        top: 1px;
+        font-size: 18px;
+        color: #f00;
+        line-height: 1;
+        padding-left: 20px;
+        display: inline-block;
+
+        &:before {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            background-color: #f00;
+            width: 8px;
+            height: 8px;
+            content: "";
+            border-radius: 50%;
+            display: block;
+            transform: translate(0, -4px);
+            animation: 1.2s hiring-dot-animation infinite both;
+        }
+    }
+
+    &__content {
+        padding-bottom: 56px;
+        justify-content: center;
+        flex: 1;
+        flex-direction: column;
+        display: flex;
+    }
+
+    &__title {
+        color: #000;
+        text-shadow: 0 0 2px rgba(255,255,255,.25);
+
+        @include media-breakpoint-up(md) {
+            font-size: 4.444rem;
+        }
+    }
+
+    &__scrollBtn {
+        position: absolute;
+        left: 50%;
+        bottom: 4.250rem;
+        background-color: rgba(0,0,0,.2);
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(255,255,255,.5);
+        transform: translate(-50%, 0);
+        transition: .3s box-shadow;
+
+        &:after {
+            border: solid #fff;
+            border-width: 0 2px 2px 0;
+            padding: 6px;
+            content: "";
+            display: inline-block;
+            transform: translate(0, 50%) rotate(45deg);
+        }
+
+        @include hover-focus {
+            box-shadow: 0 0 15px rgba(255,255,255,.98);
+        }
+
+        > span {
+            @include sr-only;
+        }
+    }
+}
+
+@keyframes hiring-dot-animation {
+    from {
+        background-color: #f00;
+    }
+    to {
+        background-color: rgba(255, 0, 0, .4);
+    }
+}
+
+//
+// Header | Navbar
+// ==========================================================================
+$dvmrcnrs-navbar-classname: 'dvmrcnrs-navbar';
+.#{$dvmrcnrs-navbar-classname} {
+    @extend .navbar;
+
+    @include media-breakpoint-up(lg) {
+        flex-flow: row nowrap;
+    }
+
+    &__brand {
+        @extend .navbar-brand;
+
+        max-width: 100px;
+
+        @include media-breakpoint-up(md) {
+            max-width: none;
+        }
+    }
+
+    &__collapse {
+        @extend .navbar-collapse;
+    }
+}
+
+//
+// Header | Navbar | Nav
+// ==========================================================================
+$dvmrcnrs-navbar-nav-classname: 'dvmrcnrs-navbar-nav';
+.#{$dvmrcnrs-navbar-nav-classname} {
+    @extend .nav;
+    @extend .nav-pills;
+
+    @include media-breakpoint-up(lg) {
+        justify-content: flex-end;
+    }
+
+    &__link {
+        @extend .nav-link;
+        
+        color: #fff;
+
+        > span {
+            position: relative;
+
+            &:before,
+            &:after {
+                position: absolute;
+                bottom: -0.5rem;
+                background-color: #fff;
+                width: 0;
+                height: 1px;
+                content: "";
+                display: block;
+                transition: .3s width;
+            }
+
+            &:before {
+                left: 50%;
+            }
+
+            &:after {
+                right: 50%;
+            }
+        }
+
+        @include hover-focus {
+            color: #fff;
+
+            > span {
+                &:before,
+                &:after {
+                    width: 50%;
+                }
+            }
+        }
+    }
+
+    &__link + &__link {
+        margin-top: 0.5rem;
+
+        @include media-breakpoint-up(xl) {
+            margin-left: 1.125rem;
+            margin-top: 0;
+        }
+    }
+}
