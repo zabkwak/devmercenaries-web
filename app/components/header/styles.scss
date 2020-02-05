@@ -36,25 +36,37 @@ $dvmrcnrs-header-classname: 'dvmrcnrs-header';
 
     &__hiredFlag {
         position: relative;
-        top: 1px;
-        font-size: 18px;
+        top: -1px;
+        font-size: 14px;
         color: #f00;
         line-height: 1;
-        padding-left: 20px;
+        margin-left: 10px;
+        padding-left: 14px;
         display: inline-block;
+
+        @include media-breakpoint-up(lg) {
+            top: 0;
+            font-size: 18px;
+            padding-left: 16px;
+        }
 
         &:before {
             position: absolute;
             top: 50%;
             left: 0;
             background-color: #f00;
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             content: "";
             border-radius: 50%;
             display: block;
-            transform: translate(0, -4px);
-            animation: 1.2s hiring-dot-animation infinite both;
+            transform: translate(0, -3px);
+
+            @include media-breakpoint-up(lg) {
+                width: 8px;
+                height: 8px;
+                transform: translate(0, -4px);
+            }
         }
     }
 
@@ -67,11 +79,14 @@ $dvmrcnrs-header-classname: 'dvmrcnrs-header';
     }
 
     &__title {
-        color: #000;
-        text-shadow: 0 0 2px rgba(255,255,255,.25);
+        position: relative;
+        color: rgba(0,0,0,.75);
+        font-weight: 800;
+        text-shadow: 0 0 2px rgba(255,255,255,.15);
+        letter-spacing: -5px;
 
         @include media-breakpoint-up(md) {
-            font-size: 4.444rem;
+            font-size: 5.250rem;
         }
     }
 
@@ -83,12 +98,12 @@ $dvmrcnrs-header-classname: 'dvmrcnrs-header';
         width: 56px;
         height: 56px;
         border-radius: 50%;
-        box-shadow: 0 0 10px rgba(255,255,255,.5);
+        box-shadow: 0 0 10px rgba(255,255,255,.375);
         transform: translate(-50%, 0);
         transition: .3s box-shadow;
 
         &:after {
-            border: solid #fff;
+            border: solid rgba(255,255,255,.75);
             border-width: 0 2px 2px 0;
             padding: 6px;
             content: "";
@@ -97,21 +112,12 @@ $dvmrcnrs-header-classname: 'dvmrcnrs-header';
         }
 
         @include hover-focus {
-            box-shadow: 0 0 15px rgba(255,255,255,.98);
+            box-shadow: 0 0 15px rgba(255,255,255,.735);
         }
 
         > span {
             @include sr-only;
         }
-    }
-}
-
-@keyframes hiring-dot-animation {
-    from {
-        background-color: #f00;
-    }
-    to {
-        background-color: rgba(255, 0, 0, .4);
     }
 }
 
@@ -122,14 +128,18 @@ $dvmrcnrs-navbar-classname: 'dvmrcnrs-navbar';
 .#{$dvmrcnrs-navbar-classname} {
     @extend .navbar;
 
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-down(sm) {
+        justify-content: center;
+    }
+
+    @include media-breakpoint-up(md) {
         flex-flow: row nowrap;
     }
 
     &__brand {
         @extend .navbar-brand;
 
-        max-width: 100px;
+        max-width: 160px;
 
         @include media-breakpoint-up(md) {
             max-width: none;
@@ -148,8 +158,9 @@ $dvmrcnrs-navbar-nav-classname: 'dvmrcnrs-navbar-nav';
 .#{$dvmrcnrs-navbar-nav-classname} {
     @extend .nav;
     @extend .nav-pills;
+    justify-content: space-around;
 
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(md) {
         justify-content: flex-end;
     }
 
@@ -195,11 +206,8 @@ $dvmrcnrs-navbar-nav-classname: 'dvmrcnrs-navbar-nav';
     }
 
     &__link + &__link {
-        margin-top: 0.5rem;
-
         @include media-breakpoint-up(xl) {
             margin-left: 1.125rem;
-            margin-top: 0;
         }
     }
 }

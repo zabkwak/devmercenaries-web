@@ -1,20 +1,34 @@
 import * as React from 'react';
+import * as WebFontLoader from 'webfontloader';
 
 import { Page } from 'reacting-squirrel';
 import { Button, Container, Form, Col } from 'react-bootstrap';
 
+import CanvasBg, { PARAMS } from '../components/canvas-bg';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import SVGIcon, { SVGIconsDefinitions } from '../components/svg-sprite';
+
+WebFontLoader.load({
+    custom: {
+        families: ['Montserrat:n7,n8', 'Muli:n2'],
+        urls: [
+            'https://fonts.googleapis.com/css?family=Montserrat:700,800&display=swap',
+            'https://fonts.googleapis.com/css?family=Muli:200&display=swap',
+        ],
+    },
+});
 
 export default class HomePage extends Page {
 
     public render() {
         return (
             <>
+                <CanvasBg params={PARAMS.HEADER} />
                 <Header />
                 <main className="dvmrcnrs-main" id="main">
                     <section className="dvmrcnrs-section" id="technologie">
+                        <CanvasBg />
                         <Container>
                             <h2 className="dvmrcnrs-section__title">Technologie, které využíváme</h2>
                             <div className="dvmrcnrs-logos">
@@ -41,6 +55,7 @@ export default class HomePage extends Page {
                         </Container>
                     </section>
                     <section className="dvmrcnrs-section" id="kontakt">
+                        <CanvasBg />
                         <Container>
                             <h2 className="dvmrcnrs-section__title">Kontakt</h2>
                             <div className="dvmrcnrs-contact">

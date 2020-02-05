@@ -87,8 +87,8 @@ export default class Header extends React.Component<IComponentProps, IComponentS
                                 <span className={`${BASE_CLASSNAME}__logo`}>
                                     <img src="./img/logo.png" className={`${BASE_CLASSNAME}__logoImg`} alt="Logo" />
                                 </span>
+                                <span className={`${BASE_CLASSNAME}__hiredFlag`}>Hired</span>
                             </Navbar.Brand>
-                            <span className={`${BASE_CLASSNAME}__hiredFlag`}>Hired</span>
                             {/* <Navbar.Toggle bsPrefix={`${NAVBAR_BASE_CLASSNAME}__toggler`} label="Menu" aria-controls="main-navbar-nav">
                                 Menu
                                 <span className={`${NAVBAR_BASE_CLASSNAME}__toggler-icon`} />

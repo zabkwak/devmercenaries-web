@@ -37,12 +37,13 @@ $body-color: #b3b3b3 !default;
 //
 // Variables Bootstrap | Typography
 // ==========================================================================
-$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Muli", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-sans-serif: 'Muli', sans-serif !default;
 $font-family-base:       $font-family-sans-serif !default;
 
 $font-size-base:         1.125rem !default;
 
-$headings-font-family:   "Montserrat" !default;
+$headings-font-family:   'Montserrat', sans-serif !default;
+$headings-font-weight:   700 !default;
 $headings-color:         #fff !default;
 
 //

@@ -1,0 +1,19 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+//
+// Canvas Background
+// ==========================================================================
+$dvmrcnrs-canvas-bg-classname: 'dvmrcnrs-canvas-bg';
+.#{$dvmrcnrs-canvas-bg-classname} {
+    position: absolute;
+    top: 52px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 4.250rem - 134px);
+
+    > div {
+        height: 100%;
+    }
+}

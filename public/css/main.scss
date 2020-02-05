@@ -19,8 +19,12 @@ html {
 }
 
 body  {
-    background-image: linear-gradient(top, #000 0%, #171717 100%);
+    background-image: linear-gradient(to top, #000 0%, #000 50%, #171717 100%);
     min-height: 100vh;
+
+    .wf-muli-n2-active & {
+        font-weight: 200;
+    }
 }
 
 //
@@ -28,6 +32,7 @@ body  {
 // ==========================================================================
 $dvmrcnrs-main-classname: 'dvmrcnrs-main';
 .#{$dvmrcnrs-main-classname} {
+    position: relative;
     min-height: 100vh;
 }
 
@@ -36,6 +41,7 @@ $dvmrcnrs-main-classname: 'dvmrcnrs-main';
 // ==========================================================================
 $dvmrcnrs-section-classname: 'dvmrcnrs-section';
 .#{$dvmrcnrs-section-classname} {
+    position: relative;
     min-height: 100vh;
     padding-top: 2.875rem;
     padding-bottom: 2.875rem;
