@@ -12,6 +12,7 @@ $dvmrcnrs-canvas-bg-classname: 'dvmrcnrs-canvas-bg';
     left: 0;
     width: 100%;
     height: calc(100vh - 4.250rem - 134px);
+    z-index: -1;
 
     > div {
         height: 100%;

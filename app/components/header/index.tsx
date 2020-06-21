@@ -9,6 +9,7 @@ import './styles.scss';
 
 interface IComponentProps {
     activeNavKey?: string,
+    hired?: boolean,
 }
 
 interface IComponentState {
@@ -34,10 +35,12 @@ export default class Header extends React.Component<IComponentProps, IComponentS
 
     static propsTypes = {
         activeNavKey: PropTypes.string,
+        hired: PropTypes.bool,
     }
 
     static defaultProps: IComponentProps = {
         activeNavKey: null,
+        hired: false,
     }
 
     constructor(props: any) {
@@ -75,6 +78,8 @@ export default class Header extends React.Component<IComponentProps, IComponentS
     }
 
     render() {
+        const {hired} = this.props
+        const logoImgSrc = hired ? './img/logo-hired.png' : './img/logo.png'
         return (
             <>
                 <Helmet>
@@ -85,9 +90,9 @@ export default class Header extends React.Component<IComponentProps, IComponentS
                         <Navbar bsPrefix={NAVBAR_BASE_CLASSNAME} expand="lg" expanded>
                             <Navbar.Brand bsPrefix={`${NAVBAR_BASE_CLASSNAME}__brand`} href="/">
                                 <span className={`${BASE_CLASSNAME}__logo`}>
-                                    <img src="./img/logo.png" className={`${BASE_CLASSNAME}__logoImg`} alt="Logo" />
+                                    <img src={logoImgSrc} className={`${BASE_CLASSNAME}__logoImg`} alt="Logo" />
                                 </span>
-                                <span className={`${BASE_CLASSNAME}__hiredFlag`}>Hired</span>
+                                {hired && <span className={`${BASE_CLASSNAME}__hiredFlag`}>Hired</span>}
                             </Navbar.Brand>
                             {/* <Navbar.Toggle bsPrefix={`${NAVBAR_BASE_CLASSNAME}__toggler`} label="Menu" aria-controls="main-navbar-nav">
                                 Menu
